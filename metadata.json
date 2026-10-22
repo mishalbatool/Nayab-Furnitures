@@ -1,0 +1,6 @@
+{
+  "name": "Nayab Furnitures Chiniot",
+  "description": "Nayab Furnitures in Chiniot, Pakistan. Handcrafted luxury wooden furniture, bedroom sets, living room sofas, royal dining suites, and bespoke Chinioti woodwork.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
