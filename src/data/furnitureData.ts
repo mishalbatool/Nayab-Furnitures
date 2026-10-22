@@ -3,6 +3,7 @@ export interface Category {
   name: string;
   tagline: string;
   image: string;
+  fallbackImage: string;
 }
 
 export interface Product {
@@ -11,6 +12,7 @@ export interface Product {
   category: string;
   categoryId: string;
   image: string;
+  fallbackImage: string;
   shortDescription: string;
   fullDescription: string;
   woodType: string;
@@ -25,8 +27,19 @@ export interface GalleryItem {
   title: string;
   category: string;
   image: string;
+  fallbackImage: string;
   description: string;
 }
+
+export const FALLBACK_IMAGES = {
+  hero: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80",
+  bedroom: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+  sofa: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80",
+  dining: "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=80",
+  artisan: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=80",
+  wardrobe: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1200&q=80",
+  custom: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=80"
+};
 
 export const BUSINESS_INFO = {
   name: "Nayab Furnitures",
@@ -51,37 +64,43 @@ export const CATEGORIES: Category[] = [
     id: "bedroom-sets",
     name: "Bedroom Sets",
     tagline: "Complete master suites with artisan carving and king headboards",
-    image: "/src/assets/images/cat_bedroom_suite_chiniot_1792674978858.jpg"
+    image: "/images/bedroom.jpg",
+    fallbackImage: FALLBACK_IMAGES.bedroom
   },
   {
     id: "beds",
     name: "Beds and Bed Frames",
     tagline: "Solid Sheesham & walnut bed frames crafted for longevity",
-    image: "/src/assets/images/cat_bedroom_suite_chiniot_1792674978858.jpg"
+    image: "/images/bedroom.jpg",
+    fallbackImage: FALLBACK_IMAGES.bedroom
   },
   {
     id: "sofas",
     name: "Sofas and Living Room Furniture",
     tagline: "Classic royal carved woodwork meets plush contemporary comfort",
-    image: "/src/assets/images/cat_luxury_sofa_living_1792674978695.jpg"
+    image: "/images/sofa.jpg",
+    fallbackImage: FALLBACK_IMAGES.sofa
   },
   {
     id: "dining",
     name: "Dining Tables and Chairs",
     tagline: "Grand family dining suites in rich polished rosewood and teak",
-    image: "/src/assets/images/cat_dining_room_teak_1792674980061.jpg"
+    image: "/images/dining.jpg",
+    fallbackImage: FALLBACK_IMAGES.dining
   },
   {
     id: "wardrobes",
     name: "Wardrobes and Cabinets",
     tagline: "Spacious multi-door almirahs, credenzas, and display showcases",
-    image: "/src/assets/images/craft_artisan_woodcarving_1792674979934.jpg"
+    image: "/images/artisan.jpg",
+    fallbackImage: FALLBACK_IMAGES.wardrobe
   },
   {
     id: "custom",
     name: "Custom Furniture",
     tagline: "Bespoke dimensions, carvings, and finishes tailored to your home",
-    image: "/src/assets/images/hero_luxury_furniture_living_1792674977567.jpg"
+    image: "/images/hero.jpg",
+    fallbackImage: FALLBACK_IMAGES.custom
   }
 ];
 
@@ -91,7 +110,8 @@ export const PRODUCTS: Product[] = [
     name: "Royal Chinioti Sheesham Bed Suite",
     category: "Bedroom Sets",
     categoryId: "bedroom-sets",
-    image: "/src/assets/images/cat_bedroom_suite_chiniot_1792674978858.jpg",
+    image: "/images/bedroom.jpg",
+    fallbackImage: FALLBACK_IMAGES.bedroom,
     shortDescription: "Majestic solid Sheesham king-size bed with signature hand-carved floral lattice headboard and pair of nightstands.",
     fullDescription: "An exemplary specimen of world-renowned Chiniot woodworking. Built from seasoned solid Sheesham (Dalbergia sissoo) rosewood with exquisite crown carvings, sturdy joinery, and matching bedside tables with brass drop handles.",
     woodType: "Solid Seasoned Sheesham / Rosewood",
@@ -105,7 +125,8 @@ export const PRODUCTS: Product[] = [
     name: "Imperial Hand-Carved Living Room Sofa Set",
     category: "Sofas & Living Room",
     categoryId: "sofas",
-    image: "/src/assets/images/cat_luxury_sofa_living_1792674978695.jpg",
+    image: "/images/sofa.jpg",
+    fallbackImage: FALLBACK_IMAGES.sofa,
     shortDescription: "Elegant 3+2+1 seating suite featuring contoured walnut wood cresting and textured warm oatmeal upholstery.",
     fullDescription: "Balances classic Chinioti heritage carving with relaxed modern ergonomics. High-density resilience foam seating, tailored stain-resistant weave, and solid wood foundation designed to grace your formal drawing room.",
     woodType: "Pure Seasoned Teak & Walnut Trim",
@@ -119,7 +140,8 @@ export const PRODUCTS: Product[] = [
     name: "Heritage 8-Seater Rosewood Dining Suite",
     category: "Dining Tables & Chairs",
     categoryId: "dining",
-    image: "/src/assets/images/cat_dining_room_teak_1792674980061.jpg",
+    image: "/images/dining.jpg",
+    fallbackImage: FALLBACK_IMAGES.dining,
     shortDescription: "Generous banquet-sized dining table with carved pedestal columns and 8 high-back upholstered chairs.",
     fullDescription: "Crafted for memorable family gatherings. The solid tabletop displays natural interlocking grain patterns, supported by hand-turned pedestal bases with acanthus leaf motifs.",
     woodType: "Premium Seasoned Rosewood (Sheesham)",
@@ -133,7 +155,8 @@ export const PRODUCTS: Product[] = [
     name: "Artisan Low-Profile Walnut Coffee Table",
     category: "Custom Furniture",
     categoryId: "custom",
-    image: "/src/assets/images/hero_luxury_furniture_living_1792674977567.jpg",
+    image: "/images/hero.jpg",
+    fallbackImage: FALLBACK_IMAGES.custom,
     shortDescription: "Sculptural organic live-edge inspired wooden coffee table with geometric solid timber pedestal base.",
     fullDescription: "A showpiece centerpiece bringing organic warmth into contemporary interiors. Milled from thick timber planks and treated with natural wax oil to celebrate wood grain variations.",
     woodType: "Kiln-Dried Dark Walnut",
@@ -146,7 +169,8 @@ export const PRODUCTS: Product[] = [
     name: "Master Crafted 4-Door Almirah Wardrobe",
     category: "Wardrobes & Cabinets",
     categoryId: "wardrobes",
-    image: "/src/assets/images/craft_artisan_woodcarving_1792674979934.jpg",
+    image: "/images/artisan.jpg",
+    fallbackImage: FALLBACK_IMAGES.wardrobe,
     shortDescription: "Grand solid wood wardrobe with interior shelving, hanging rail, secret lockboxes, and hand-carved cornice.",
     fullDescription: "Substantial heirloom storage handcrafted by master Chinioti woodcarvers. Features traditional mortise-and-tenon construction, full-extension hardwood drawers, and brass locking hardware.",
     woodType: "Solid Sheesham Hardwood",
@@ -159,7 +183,8 @@ export const PRODUCTS: Product[] = [
     name: "Royal Accent Armchair & Ottoman",
     category: "Sofas & Living Room",
     categoryId: "sofas",
-    image: "/src/assets/images/cat_luxury_sofa_living_1792674978695.jpg",
+    image: "/images/sofa.jpg",
+    fallbackImage: FALLBACK_IMAGES.sofa,
     shortDescription: "Deeply padded accent armchair with carved cabriole legs and supportive lumbar contouring.",
     fullDescription: "An inviting corner seat for reading or fireside relaxation. Accented with brass studding and hand-finished wood curves.",
     woodType: "Carved Solid Teak",
@@ -172,7 +197,8 @@ export const PRODUCTS: Product[] = [
     name: "Chinioti Ornate Vanity & Beveled Mirror",
     category: "Bedroom Sets",
     categoryId: "bedroom-sets",
-    image: "/src/assets/images/cat_bedroom_suite_chiniot_1792674978858.jpg",
+    image: "/images/bedroom.jpg",
+    fallbackImage: FALLBACK_IMAGES.bedroom,
     shortDescription: "Curved dressing console with six velvet-lined drawers, floral filigree carving, and matching upholstered stool.",
     fullDescription: "A timeless bedroom staple featuring authentic Chinioti jali-relief carving around the mirror frame and delicate cabriole legs.",
     woodType: "Solid Seasoned Sheesham",
@@ -185,7 +211,8 @@ export const PRODUCTS: Product[] = [
     name: "Bespoke Entryway Console Table",
     category: "Custom Furniture",
     categoryId: "custom",
-    image: "/src/assets/images/hero_luxury_furniture_living_1792674977567.jpg",
+    image: "/images/hero.jpg",
+    fallbackImage: FALLBACK_IMAGES.custom,
     shortDescription: "Slim hallway console table with fluted wooden pillars, brass tips, and double storage drawers.",
     fullDescription: "Customizable in width and timber species to fit your foyer, corridor, or living space. Made to order by Nayab Furnitures craftsmen.",
     woodType: "Selected Sheesham or Teak",
@@ -200,42 +227,48 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-1",
     title: "Luxury Living Room Interior",
     category: "Living",
-    image: "/src/assets/images/hero_luxury_furniture_living_1792674977567.jpg",
+    image: "/images/hero.jpg",
+    fallbackImage: FALLBACK_IMAGES.hero,
     description: "Harmonious drawing room setup featuring custom walnut coffee table and luxury seating in warm beige."
   },
   {
     id: "gal-2",
     title: "Master Bedroom Suite Setup",
     category: "Bedroom",
-    image: "/src/assets/images/cat_bedroom_suite_chiniot_1792674978858.jpg",
+    image: "/images/bedroom.jpg",
+    fallbackImage: FALLBACK_IMAGES.bedroom,
     description: "Solid Sheesham king bed with matching carved bedside nightstands in rich dark finish."
   },
   {
     id: "gal-3",
     title: "Royal Drawing Room Sofa Suite",
     category: "Living",
-    image: "/src/assets/images/cat_luxury_sofa_living_1792674978695.jpg",
+    image: "/images/sofa.jpg",
+    fallbackImage: FALLBACK_IMAGES.sofa,
     description: "Handcrafted woodwork frame with intricate crown carvings and oatmeal luxury fabric."
   },
   {
     id: "gal-4",
     title: "Banquet Dining Suite & Chandelier",
     category: "Dining",
-    image: "/src/assets/images/cat_dining_room_teak_1792674980061.jpg",
+    image: "/images/dining.jpg",
+    fallbackImage: FALLBACK_IMAGES.dining,
     description: "8-seater grand dining table crafted from heavy seasoned timber with comfortable cushioned chairs."
   },
   {
     id: "gal-5",
     title: "Chiniot Master Woodcarver at Work",
     category: "Craftsmanship",
-    image: "/src/assets/images/craft_artisan_woodcarving_1792674979934.jpg",
+    image: "/images/artisan.jpg",
+    fallbackImage: FALLBACK_IMAGES.artisan,
     description: "Traditional chisel hand-carving in our workshop, preserving centuries-old Chinioti woodcraft."
   },
   {
     id: "gal-6",
     title: "Custom Timber Joinery & Detailing",
     category: "Craftsmanship",
-    image: "/src/assets/images/hero_luxury_furniture_living_1792674977567.jpg",
+    image: "/images/hero.jpg",
+    fallbackImage: FALLBACK_IMAGES.custom,
     description: "Close inspection of kiln-dried solid timber joints and hand-applied protective finish."
   }
 ];

@@ -1,6 +1,7 @@
 import React from "react";
 import { MapPin, Phone, MessageCircle, Sparkles, CheckCircle2 } from "lucide-react";
-import { BUSINESS_INFO } from "../data/furnitureData";
+import { BUSINESS_INFO, FALLBACK_IMAGES } from "../data/furnitureData";
+import { SafeImage } from "./SafeImage";
 
 export const AboutUs: React.FC = () => {
   const whatsappHref = `${BUSINESS_INFO.whatsappBaseUrl}?text=${encodeURIComponent(
@@ -14,11 +15,11 @@ export const AboutUs: React.FC = () => {
           {/* Imagery Side */}
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#2c1e18]/10 bg-[#2c1e18]">
-              <img
-                src="/src/assets/images/craft_artisan_woodcarving_1792674979934.jpg"
+              <SafeImage
+                src="/images/artisan.jpg"
+                fallbackSrc={FALLBACK_IMAGES.artisan}
                 alt="Master woodcarver at work in Chiniot, Pakistan"
                 className="w-full h-[400px] sm:h-[480px] object-cover object-center"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">

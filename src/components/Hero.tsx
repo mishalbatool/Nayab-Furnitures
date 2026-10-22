@@ -1,6 +1,7 @@
 import React from "react";
 import { MessageCircle, ArrowRight, MapPin, Sparkles } from "lucide-react";
-import { BUSINESS_INFO } from "../data/furnitureData";
+import { SafeImage } from "./SafeImage";
+import { BUSINESS_INFO, FALLBACK_IMAGES } from "../data/furnitureData";
 
 interface HeroProps {
   onExploreClick: () => void;
@@ -15,11 +16,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
     <section id="home" className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#1a120c]">
       {/* Background Image with Measured Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/src/assets/images/hero_luxury_furniture_living_1792674977567.jpg"
+        <SafeImage
+          src="/images/hero.jpg"
+          fallbackSrc={FALLBACK_IMAGES.hero}
           alt="Nayab Furnitures luxury living room showroom in Chiniot"
           className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
-          referrerPolicy="no-referrer"
         />
         {/* Measured dark gradient scrim for crisp contrast and warmth */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#140d09]/95 via-[#1a120c]/70 to-[#140d09]/60" />

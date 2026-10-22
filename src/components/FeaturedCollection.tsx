@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { MessageCircle, Search, Eye, Info, Sparkles } from "lucide-react";
 import { PRODUCTS, Product, BUSINESS_INFO } from "../data/furnitureData";
+import { SafeImage } from "./SafeImage";
 
 interface FeaturedCollectionProps {
   selectedCategoryId: string | null;
@@ -135,11 +136,11 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
               >
                 {/* Image Container with 4:3 Aspect Ratio */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#e8e2d5]">
-                  <img
+                  <SafeImage
                     src={product.image}
+                    fallbackSrc={product.fallbackImage}
                     alt={`${product.name} - Nayab Furnitures Chiniot`}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
-                    referrerPolicy="no-referrer"
                     loading="lazy"
                   />
                   {product.isPopular && (

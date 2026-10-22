@@ -1,6 +1,7 @@
 import React from "react";
 import { X, MessageCircle, Ruler, TreePine, ShieldCheck, Sparkles, MapPin } from "lucide-react";
 import { Product, BUSINESS_INFO } from "../data/furnitureData";
+import { SafeImage } from "./SafeImage";
 
 interface ProductModalProps {
   product: Product | null;
@@ -34,11 +35,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
 
         {/* Product Media Column */}
         <div className="w-full md:w-1/2 bg-[#1f140e] relative min-h-[280px] md:min-h-full">
-          <img
+          <SafeImage
             src={product.image}
+            fallbackSrc={product.fallbackImage}
             alt={product.name}
             className="w-full h-full object-cover object-center"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:hidden" />
         </div>

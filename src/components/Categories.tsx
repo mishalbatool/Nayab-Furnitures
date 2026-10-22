@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { CATEGORIES, Category } from "../data/furnitureData";
+import { SafeImage } from "./SafeImage";
 
 interface CategoriesProps {
   onSelectCategory: (categoryId: string) => void;
@@ -32,11 +33,11 @@ export const Categories: React.FC<CategoriesProps> = ({ onSelectCategory }) => {
               className="group relative flex flex-col justify-end h-80 sm:h-96 rounded-2xl overflow-hidden bg-[#2c1e18] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
             >
               {/* Category Imagery */}
-              <img
+              <SafeImage
                 src={cat.image}
+                fallbackSrc={cat.fallbackImage}
                 alt={`${cat.name} by Nayab Furnitures Chiniot`}
                 className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                referrerPolicy="no-referrer"
               />
 
               {/* Scrim Overlay */}

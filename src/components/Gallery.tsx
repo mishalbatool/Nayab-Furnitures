@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GALLERY_ITEMS, GalleryItem, BUSINESS_INFO } from "../data/furnitureData";
 import { Maximize2, X, MessageCircle } from "lucide-react";
+import { SafeImage } from "./SafeImage";
 
 export const Gallery: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -61,11 +62,11 @@ export const Gallery: React.FC = () => {
               onClick={() => setActiveItem(item)}
               className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-[#2c1e18] cursor-pointer shadow-md"
             >
-              <img
+              <SafeImage
                 src={item.image}
+                fallbackSrc={item.fallbackImage}
                 alt={item.title}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                referrerPolicy="no-referrer"
                 loading="lazy"
               />
 
@@ -116,11 +117,11 @@ export const Gallery: React.FC = () => {
 
             {/* Large Image View */}
             <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-black overflow-hidden">
-              <img
+              <SafeImage
                 src={activeItem.image}
+                fallbackSrc={activeItem.fallbackImage}
                 alt={activeItem.title}
                 className="w-full h-full object-contain object-center"
-                referrerPolicy="no-referrer"
               />
             </div>
 
